@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import VideoPlayer from './components/VideoPlayer';
-import HighlightsCarousel from './components/HighlightsCarousel';
-import StatsLeaderboard from './components/StatsLeaderboard';
-import ChatPanel from './components/ChatPanel';
+import MatchCentre from './components/MatchCentre';
+import MoreMatches from './components/MoreMatches';
+import AnalyticsSidebar from './components/AnalyticsSidebar';
 
 // PUBLIC_INTERFACE
 function App() {
@@ -16,10 +16,11 @@ function App() {
       <div className="main-layout">
         <main>
           <VideoPlayer />
-          <HighlightsCarousel />
-          <StatsLeaderboard />
+          {/* StreamSelection will be added here later */}
+          <MatchCentre />
+          <MoreMatches />
         </main>
-        <ChatPanel />
+        <AnalyticsSidebar />
       </div>
     </div>
   );
