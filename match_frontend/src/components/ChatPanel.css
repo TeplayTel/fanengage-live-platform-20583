@@ -26,3 +26,32 @@
   color: var(--secondary-text);
   margin: 0;
 }
+
+.chat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-message {
+  font-size: 14px;
+}
+
+.chat-user {
+  font-weight: bold;
+  color: var(--primary-text);
+  margin-right: 8px;
+}
+
+.chat-text {
+  color: var(--secondary-text);
+}
+
+.timeline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

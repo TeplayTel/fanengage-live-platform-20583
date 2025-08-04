@@ -16,3 +16,26 @@
   background-color: #000;
   color: var(--secondary-text);
 }
+
+.video-overlay {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
+  z-index: 5;
+  pointer-events: none; /* Allows clicks to go through to the video player */
+}
+
+.match-info .score {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.time {
+  font-size: 24px;
+  font-weight: bold;
+}

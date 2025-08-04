@@ -9,8 +9,10 @@ const Header = () => {
         <span className="live-badge">LIVE</span>
       </div>
       <nav className="main-nav">
-        <a href="#live" className="nav-item active">Live updating</a>
-        <a href="#breakdown" className="nav-item">Advanced breakdown</a>
+        <a href="#live" className="nav-item active">LIVE</a>
+        <a href="#hd-streaming" className="nav-item">HD STREAMING</a>
+        <a href="#streaming-channels" className="nav-item">STREAMING CHANNELS</a>
+        <a href="#premier-league" className="nav-item">PREMIER LEAGUE</a>
       </nav>
       <div className="header-actions">
         {/* Placeholder for icons */}

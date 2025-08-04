@@ -14,10 +14,14 @@
 .emoji-button {
   background: none;
   border: none;
-  font-size: 26px;
+  font-size: 22px;
   cursor: pointer;
   padding: 4px;
   transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: white;
 }
 
 .emoji-button:hover {

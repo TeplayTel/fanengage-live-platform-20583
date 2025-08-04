@@ -32,3 +32,74 @@
 .tab-content {
   color: var(--secondary-text);
 }
+
+.match-center-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.team-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.score-display {
+  font-size: 36px;
+  font-weight: bold;
+  color: var(--primary-text);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  grid-column: span 3;
+}
+
+.stat-item p {
+  color: var(--secondary-text);
+  font-size: 14px;
+  margin: 0 10px;
+}
+
+.stat-item span {
+  color: var(--primary-text);
+  font-weight: bold;
+}
+
+.leaderboard-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.leaderboard-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--sidebar-bg);
+}
+
+.leaderboard-list li:last-child {
+  border-bottom: none;
+}
+
+.leaderboard-list span {
+  color: var(--secondary-text);
+}
+
+.leaderboard-list strong {
+  color: var(--primary-text);
+}
