@@ -47,28 +47,28 @@ const AnalyticsSidebar = () => {
                 <p className="stat-label centered">Possession</p>
                 <div className="possession-bar-group">
                     <div className="possession-bar-row">
-                        <span className="team-label">HOME</span>
+                        <span className="team-label">CHELSEA</span>
                         <div className="progress-bar-container">
-                            <div className="progress-bar home" style={{ width: '52%' }}></div>
+                            <div className="progress-bar home" style={{ width: '45%' }}></div>
                         </div>
-                        <span className="percentage-label">52%</span>
+                        <span className="percentage-label">45%</span>
                     </div>
                     <div className="possession-bar-row">
-                        <span className="team-label">AWAY</span>
+                        <span className="team-label">ARSENAL</span>
                         <div className="progress-bar-container">
-                            <div className="progress-bar away" style={{ width: '48%' }}></div>
+                            <div className="progress-bar away" style={{ width: '55%' }}></div>
                         </div>
-                        <span className="percentage-label">48%</span>
+                        <span className="percentage-label">55%</span>
                     </div>
                 </div>
             </div>
 
             <div className="divider"></div>
-            <StatRow label="Shots" homeValue={4} awayValue={2} />
+            <StatRow label="Shots" homeValue={3} awayValue={7} />
             <div className="divider"></div>
-            <StatRow label="Cards" homeValue={1} awayValue={3} />
+            <StatRow label="Cards" homeValue={1} awayValue={2} />
             <div className="divider"></div>
-            <StatRow label="Corners" homeValue={5} awayValue={3} />
+            <StatRow label="Corners" homeValue={2} awayValue={4} />
             <div className="divider"></div>
             <StatRow label="Penalties" homeValue={0} awayValue={1} />
         </div>
