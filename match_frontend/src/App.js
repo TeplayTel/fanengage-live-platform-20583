@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import VideoPlayer from './components/VideoPlayer';
-import StreamSelection from './components/StreamSelection';
 import MatchCentre from './components/MatchCentre';
 import MoreMatches from './components/MoreMatches';
 import AnalyticsSidebar from './components/AnalyticsSidebar';
@@ -17,7 +16,6 @@ function App() {
       <div className="main-layout">
         <main>
           <VideoPlayer />
-          <StreamSelection />
           <MatchCentre />
           <MoreMatches />
         </main>
