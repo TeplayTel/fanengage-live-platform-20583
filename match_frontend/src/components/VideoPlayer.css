@@ -1,0 +1,18 @@
+.video-player-container {
+  width: 100%;
+  position: relative;
+  border-radius: var(--border-radius-main);
+  overflow: hidden;
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow-main);
+}
+
+.video-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: var(--secondary-text);
+}

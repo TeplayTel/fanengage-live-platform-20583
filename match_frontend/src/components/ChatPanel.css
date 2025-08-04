@@ -1,0 +1,28 @@
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background-color: var(--sidebar-bg);
+  padding: 24px;
+  border-radius: var(--border-radius-card);
+  height: fit-content;
+}
+
+.panel-card {
+  background-color: var(--card-bg);
+  padding: 18px;
+  border-radius: var(--border-radius-card);
+}
+
+.panel-card h3 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: var(--primary-text);
+}
+
+.panel-card p {
+  font-size: 15px;
+  color: var(--secondary-text);
+  margin: 0;
+}

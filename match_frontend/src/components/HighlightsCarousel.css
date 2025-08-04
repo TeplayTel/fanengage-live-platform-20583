@@ -1,0 +1,26 @@
+.highlights-carousel {
+  background-color: var(--card-bg);
+  padding: 24px;
+  border-radius: var(--border-radius-card);
+  margin-top: 28px;
+}
+
+.highlights-carousel h2 {
+  font-size: 20px;
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+
+.carousel-content {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+}
+
+.highlight-item-placeholder {
+  flex-shrink: 0;
+  width: 220px;
+  height: 120px;
+  background-color: var(--sidebar-bg);
+  border-radius: var(--border-radius-card);
+}
