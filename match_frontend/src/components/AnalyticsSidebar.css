@@ -1,195 +1,533 @@
+/* Analytics Sidebar - Pixel Perfect Implementation */
+
+/* Design system colors from analytics_sidebar_design_notes.md */
 .analytics-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  background-color: var(--sidebar-bg);
-  padding: 16px;
-  border-radius: 8px;
-  height: fit-content;
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2a2a2a;
+  --bg-tertiary: #333333;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --text-muted: #888888;
+  --accent-blue: #4a9eff;
+  --accent-red: #ff4444;
+  --accent-green: #44ff44;
+  --border-color: #404040;
+  --hover-bg: #3a3a3a;
 }
 
+.analytics-sidebar {
+  width: 320px;
+  height: 100vh;
+  background-color: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Header Section */
 .sidebar-header {
+  background-color: var(--bg-primary);
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
 }
 
 .tabs {
   display: flex;
-  gap: 8px;
+  gap: 0;
 }
 
 .tab {
-  background-color: transparent;
-  color: var(--secondary-text);
+  background: none;
   border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: bold;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 12px 16px;
   cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 200ms ease-in-out;
   text-transform: uppercase;
 }
 
 .tab.active {
-  background-color: var(--accent-blue);
-  color: var(--primary-text);
+  color: var(--text-primary);
+  border-bottom-color: var(--accent-blue);
+}
+
+.tab:hover:not(.active) {
+  color: var(--text-primary);
+  background-color: var(--hover-bg);
 }
 
 .live-badge-sidebar {
   background-color: var(--accent-red);
-  color: var(--primary-text);
-  padding: 2px 6px;
+  color: var(--text-primary);
+  padding: 4px 8px;
   border-radius: 4px;
   font-size: 10px;
   font-weight: bold;
 }
 
-.stats-card {
-  background-color: var(--section-bg);
-  border-radius: 8px;
+/* Scrollable Content */
+.sidebar-content {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Team/Match Info Section */
+.match-info-card {
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
   padding: 16px;
 }
 
-.stats-header {
+.match-teams {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 12px;
+}
+
+.team-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.team-logo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.team-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.match-score {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: "SF Mono", Consolas, monospace;
+}
+
+.match-time {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* Formation Section */
+.formation-card {
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.section-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formation-dropdown {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.formation-field {
+  background-color: var(--bg-tertiary);
+  border-radius: 4px;
+  padding: 16px;
+  position: relative;
+  height: 200px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.formation-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.player-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+
+.player-card:hover {
+  transform: scale(1.1);
+}
+
+.player-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--accent-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.player-name {
+  font-size: 10px;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Statistics Section */
+.stats-card {
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.stats-table {
+  width: 100%;
+}
+
+.stats-header-row {
+  background-color: var(--bg-tertiary);
+  height: 32px;
+}
+
+.stats-header-row th {
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: left;
+  border: none;
+}
+
+.stats-data-row {
+  height: 28px;
+  transition: background-color 150ms ease-in-out;
+}
+
+.stats-data-row:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.stats-data-row:hover {
+  background-color: var(--hover-bg);
+}
+
+.stats-data-row td {
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  border: none;
+}
+
+.stat-value {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: "SF Mono", Consolas, monospace;
+}
+
+/* Premier League Poll Section */
+.poll-card {
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.poll-dropdown {
+  width: 100%;
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: var(--text-primary);
+  cursor: pointer;
   margin-bottom: 16px;
 }
 
-.stats-header h3 {
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--primary-text);
-  margin: 0;
+.poll-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
-.stats-dropdown {
-  background-color: var(--section-bg);
-  color: var(--secondary-text);
-  border: 1px solid var(--divider-color);
-  border-radius: 4px;
-  padding: 4px 8px;
+.poll-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.poll-team-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.poll-progress-container {
+  flex: 1;
+  margin: 0 12px;
+  height: 4px;
+  background-color: var(--border-color);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.poll-progress-bar {
+  height: 100%;
+  background-color: var(--accent-blue);
+  transition: width 300ms ease-in-out;
+}
+
+.poll-percentage {
   font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: "SF Mono", Consolas, monospace;
+  min-width: 30px;
+  text-align: right;
 }
 
-.stats-content {
+.vote-button {
+  background-color: var(--accent-blue);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  transition: opacity 200ms ease-in-out;
+}
+
+.vote-button:hover {
+  opacity: 0.9;
+}
+
+/* Timeline Section */
+.timeline-card {
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.timeline-items {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.possession-stat .stat-label.centered {
-  text-align: center;
-  margin-bottom: 12px;
-  font-size: 14px;
-  color: var(--secondary-text);
-}
-
-.possession-bar-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.possession-bar-row {
-  display: grid;
-  grid-template-columns: 50px 1fr 40px;
+.timeline-item {
+  display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
-.team-label {
-    font-size: 12px;
-    color: var(--secondary-text);
-}
-
-.progress-bar-container {
+.timeline-icon {
+  width: 8px;
   height: 8px;
-  background-color: var(--progress-bar-bg);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.timeline-icon.goal {
+  background-color: var(--accent-green);
+}
+
+.timeline-icon.substitution {
+  background-color: var(--accent-blue);
+}
+
+.timeline-icon.possession {
+  background-color: var(--accent-red);
+}
+
+.timeline-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.timeline-value {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: "SF Mono", Consolas, monospace;
+}
+
+.timeline-progress-container {
+  flex: 1;
+  height: 4px;
+  background-color: var(--border-color);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: 0 8px;
+}
+
+.timeline-progress-bar {
+  height: 100%;
+  background-color: var(--accent-blue);
+  transition: width 300ms ease-in-out;
+}
+
+/* Top Moments Section */
+.moments-card {
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.moments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.moment-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
   border-radius: 4px;
+  transition: background-color 150ms ease-in-out;
+  cursor: pointer;
+}
+
+.moment-item:hover {
+  background-color: var(--hover-bg);
+}
+
+.moment-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background-color: var(--accent-red);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.moment-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.moment-progress-container {
+  width: 60px;
+  height: 4px;
+  background-color: var(--border-color);
+  border-radius: 2px;
   overflow: hidden;
 }
 
-.progress-bar {
+.moment-progress-bar {
   height: 100%;
+  background-color: var(--accent-red);
+  transition: width 300ms ease-in-out;
 }
 
-.progress-bar.home {
-  background-color: var(--progress-bar-home);
+/* Charts Section */
+.charts-card {
+  background-color: var(--bg-secondary);
+  border-radius: 6px;
+  padding: 16px;
 }
 
-.progress-bar.away {
-  background-color: var(--progress-bar-away);
+.mini-chart {
+  width: 100%;
+  height: 60px;
+  background-color: var(--bg-tertiary);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  margin-bottom: 12px;
 }
 
-.percentage-label {
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--primary-text);
-    text-align: right;
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .analytics-sidebar {
+    width: 280px;
+  }
 }
 
-.divider {
-  height: 1px;
-  background-color: var(--divider-color);
-  margin: 8px 0;
+@media (max-width: 768px) {
+  .analytics-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+  
+  .sidebar-content {
+    padding: 12px;
+  }
+  
+  .formation-field {
+    height: 150px;
+  }
 }
 
-.stat-row-item {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+/* Accessibility */
+.tab:focus,
+.vote-button:focus,
+.formation-dropdown:focus,
+.poll-dropdown:focus {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 2px;
 }
 
-.stat-row-header {
-    display: grid;
-    grid-template-columns: 50px 1fr 50px;
-    align-items: center;
-    text-align: center;
+/* Loading States */
+.loading-skeleton {
+  background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--hover-bg) 50%, var(--bg-tertiary) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
 }
 
-.stat-label {
-    font-size: 14px;
-    color: var(--secondary-text);
-}
-
-.stat-value-home, .stat-value-away {
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--primary-text);
-}
-
-.stat-value-home {
-    text-align: left;
-}
-
-.stat-value-away {
-    text-align: right;
-}
-
-.stat-row-bar {
-    height: 8px;
-    background-color: var(--progress-bar-bg);
-    border-radius: 4px;
-    display: flex;
-    overflow: hidden;
-}
-
-.stat-bar-fill {
-    height: 100%;
-}
-
-.stat-bar-fill.home {
-    background-color: var(--progress-bar-home);
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-
-.stat-bar-fill.away {
-    background-color: var(--progress-bar-away);
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    margin-left: auto;
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
