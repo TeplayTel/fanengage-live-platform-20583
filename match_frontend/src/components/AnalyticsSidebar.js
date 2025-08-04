@@ -204,115 +204,83 @@ const ChartsVisualization = () => (
 
 // PUBLIC_INTERFACE
 const AnalyticsSidebar = () => {
-  const [activeTab, setActiveTab] = useState('analytics');
   const [selectedFormation, setSelectedFormation] = useState('4-4-2');
-
-  const renderAnalyticsContent = () => (
-    <div className="sidebar-content">
-      {/* Match Info */}
-      <div className="match-info-card">
-        <div className="match-teams">
-          <div className="team-info">
-            <img 
-              src="https://ssl.gstatic.com/onebox/media/sports/logos/4us2nCgl6kgZc0t3hpW75Q_96x96.png" 
-              alt="Arsenal" 
-              className="team-logo" 
-            />
-            <span className="team-name">Arsenal</span>
-          </div>
-          <div className="match-score">2 - 1</div>
-          <div className="team-info">
-            <img 
-              src="https://ssl.gstatic.com/onebox/media/sports/logos/fhg1GDpgqOOewf_AyDfl-A_96x96.png" 
-              alt="Chelsea" 
-              className="team-logo" 
-            />
-            <span className="team-name">Chelsea</span>
-          </div>
-        </div>
-        <div className="match-time">81:05 - Full Time</div>
-      </div>
-
-      {/* Formation */}
-      <div className="formation-card">
-        <div className="section-header">
-          <span>Formation</span>
-          <select 
-            className="formation-dropdown"
-            value={selectedFormation}
-            onChange={(e) => setSelectedFormation(e.target.value)}
-          >
-            <option value="4-4-2">4-4-2</option>
-            <option value="4-3-3">4-3-3</option>
-            <option value="3-5-2">3-5-2</option>
-          </select>
-        </div>
-        <FormationView formation={selectedFormation} />
-      </div>
-
-      {/* Statistics */}
-      <div className="stats-card">
-        <div className="section-header">
-          <span>Match Statistics</span>
-        </div>
-        <StatisticsTable stats={statsData} />
-      </div>
-
-      {/* Premier League Poll */}
-      <PremierLeaguePoll />
-
-      {/* Timeline */}
-      <Timeline items={timelineData} />
-
-      {/* Top Moments */}
-      <TopMoments moments={momentsData} />
-
-      {/* Charts */}
-      <ChartsVisualization />
-    </div>
-  );
-
-  const renderChatContent = () => (
-    <div className="sidebar-content">
-      <div className="match-info-card">
-        <div className="section-header">
-          <span>Live Chat</span>
-        </div>
-        <div style={{ 
-          textAlign: 'center', 
-          padding: '40px 20px', 
-          color: 'var(--text-muted)',
-          fontStyle: 'italic' 
-        }}>
-          Chat functionality coming soon...
-        </div>
-      </div>
-    </div>
-  );
 
   return (
     <aside className="analytics-sidebar">
-      {/* Header with Tabs */}
+      {/* Header */}
       <div className="sidebar-header">
         <div className="tabs">
-          <button 
-            className={`tab ${activeTab === 'analytics' ? 'active' : ''}`}
-            onClick={() => setActiveTab('analytics')}
-          >
+          <button className="tab active">
             Analytics
-          </button>
-          <button 
-            className={`tab ${activeTab === 'chat' ? 'active' : ''}`}
-            onClick={() => setActiveTab('chat')}
-          >
-            Chat
           </button>
         </div>
         <span className="live-badge-sidebar">LIVE</span>
       </div>
 
-      {/* Content */}
-      {activeTab === 'analytics' ? renderAnalyticsContent() : renderChatContent()}
+      {/* Analytics Content */}
+      <div className="sidebar-content">
+        {/* Match Info */}
+        <div className="match-info-card">
+          <div className="match-teams">
+            <div className="team-info">
+              <img 
+                src="https://ssl.gstatic.com/onebox/media/sports/logos/4us2nCgl6kgZc0t3hpW75Q_96x96.png" 
+                alt="Arsenal" 
+                className="team-logo" 
+              />
+              <span className="team-name">Arsenal</span>
+            </div>
+            <div className="match-score">2 - 1</div>
+            <div className="team-info">
+              <img 
+                src="https://ssl.gstatic.com/onebox/media/sports/logos/fhg1GDpgqOOewf_AyDfl-A_96x96.png" 
+                alt="Chelsea" 
+                className="team-logo" 
+              />
+              <span className="team-name">Chelsea</span>
+            </div>
+          </div>
+          <div className="match-time">81:05 - Full Time</div>
+        </div>
+
+        {/* Formation */}
+        <div className="formation-card">
+          <div className="section-header">
+            <span>Formation</span>
+            <select 
+              className="formation-dropdown"
+              value={selectedFormation}
+              onChange={(e) => setSelectedFormation(e.target.value)}
+            >
+              <option value="4-4-2">4-4-2</option>
+              <option value="4-3-3">4-3-3</option>
+              <option value="3-5-2">3-5-2</option>
+            </select>
+          </div>
+          <FormationView formation={selectedFormation} />
+        </div>
+
+        {/* Statistics */}
+        <div className="stats-card">
+          <div className="section-header">
+            <span>Match Statistics</span>
+          </div>
+          <StatisticsTable stats={statsData} />
+        </div>
+
+        {/* Premier League Poll */}
+        <PremierLeaguePoll />
+
+        {/* Timeline */}
+        <Timeline items={timelineData} />
+
+        {/* Top Moments */}
+        <TopMoments moments={momentsData} />
+
+        {/* Charts */}
+        <ChartsVisualization />
+      </div>
     </aside>
   );
 };
