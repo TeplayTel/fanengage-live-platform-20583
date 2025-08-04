@@ -16,6 +16,10 @@ const VideoPlayer = () => {
         {/* In a real app, a <video> or <iframe> tag would go here */}
       </div>
       <EmojiBar />
+      <div className="video-controls">
+        <i className="fa fa-volume-up"></i>
+        <i className="fa fa-expand"></i>
+      </div>
     </div>
   );
 };

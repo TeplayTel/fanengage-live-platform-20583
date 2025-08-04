@@ -1,43 +1,53 @@
 import React from 'react';
-import './ChatPanel.css';
+import './AnalyticsSidebar.css';
 
-const ChatPanel = () => {
+const AnalyticsSidebar = () => {
   return (
     <aside className="chat-panel">
       <div className="panel-card">
-        <h3>Chat</h3>
-        <div className="chat-content">
-          <div className="chat-message">
-            <span className="chat-user">ArsenalFan11:</span>
-            <span className="chat-text">Come on you Gunners! 🔥</span>
+        <h3>ANALYTICS</h3>
+        <div className="analytics-section">
+          <h4>Premier League Poll</h4>
+          <div className="poll-option">
+            <span>Chelsea</span>
+            <div className="progress-bar-container">
+              <div className="progress-bar" style={{ width: '0%' }}></div>
+            </div>
+            <span>0%</span>
           </div>
-          <div className="chat-message">
-            <span className="chat-user">CFC_Dave:</span>
-            <span className="chat-text">What a save! 😮</span>
+          <div className="poll-option">
+            <span>Arsenal</span>
+            <div className="progress-bar-container">
+              <div className="progress-bar" style={{ width: '0%' }}></div>
+            </div>
+            <span>0%</span>
           </div>
-          <div className="chat-message">
-            <span className="chat-user">Neutral_Neto:</span>
-            <span className="chat-text">This game is intense!</span>
-          </div>
+          <button className="vote-btn">VOTE</button>
         </div>
-      </div>
-      <div className="panel-card">
-        <h3>Timeline</h3>
-        <ul className="timeline-list">
-          <li><strong>Penalty - 16th</strong></li>
-          <li><strong>Havertz Dismissal</strong></li>
-          <li><strong>Kick Off</strong></li>
-          <li><strong>Starting Lineups</strong></li>
-        </ul>
-      </div>
-      <div className="panel-card">
-        <h3>Analytics</h3>
-         <p><strong>Possession:</strong> 58.2%</p>
-         <p><strong>Goal Probability:</strong> 15.8M</p>
-         <p><strong>Substitutions:</strong> 5.2M</p>
+        <div className="analytics-section">
+          <h4>Timeline</h4>
+          <p><strong>GOAL:</strong> 15.8M</p>
+        </div>
+        <div className="analytics-section">
+          <h4>Subs</h4>
+          <p><strong>Substitution:</strong> 5.2M</p>
+        </div>
+        <div className="analytics-section">
+          <h4>Possession</h4>
+          <p><strong>Team Possession:</strong> 58.2%</p>
+        </div>
+        <div className="analytics-section">
+          <h4>Top Moments</h4>
+          <ul className="timeline-list">
+            <li>Starting Lineups</li>
+            <li>Kick Off</li>
+            <li>Havertz Dismissal</li>
+            <li>Penalty - 16th</li>
+          </ul>
+        </div>
       </div>
     </aside>
   );
 };
 
-export default ChatPanel;
+export default AnalyticsSidebar;

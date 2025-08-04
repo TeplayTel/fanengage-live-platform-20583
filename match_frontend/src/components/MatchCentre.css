@@ -5,6 +5,19 @@
   margin-top: 28px;
 }
 
+.match-centre-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.match-centre-title h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
 .match-centre-header {
   display: flex;
   justify-content: space-around;

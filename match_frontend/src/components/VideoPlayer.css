@@ -7,6 +7,17 @@
   box-shadow: var(--shadow-main);
 }
 
+.video-controls {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  display: flex;
+  gap: 15px;
+  color: white;
+  font-size: 20px;
+  z-index: 10;
+}
+
 .video-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;

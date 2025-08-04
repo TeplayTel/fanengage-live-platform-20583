@@ -1,0 +1,24 @@
+.stream-selection {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.stream-btn {
+  background-color: var(--pill-bg-dim);
+  color: var(--secondary-text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--border-radius-pill);
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.stream-btn.active,
+.stream-btn:hover {
+  background-color: var(--accent-blue);
+  color: var(--button-text);
+}

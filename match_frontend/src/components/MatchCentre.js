@@ -49,6 +49,10 @@ const MatchCentre = () => {
 
   return (
     <div className="match-centre">
+       <div className="match-centre-title">
+        <h2>Match Centre</h2>
+        <span className="live-badge">LIVE</span>
+      </div>
       <div className="match-centre-header">
         <div className="team">
           <img src="https://ssl.gstatic.com/onebox/media/sports/logos/4us2nCgl6kgZc0t3hpW75Q_96x96.png" alt="Arsenal" className="team-logo" />
