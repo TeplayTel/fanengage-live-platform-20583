@@ -1,14 +1,19 @@
-/* from assets/match_page_design_notes.md */
+/* from assets/match_page_design_notes.md & assets/analytics_sidebar_design_notes.md */
 :root {
   --bg-canvas: #21222B;
   --bg-header: #191A20;
   --card-bg: #24252E;
-  --sidebar-bg: #23242C;
+  --sidebar-bg: #1E1E2F;
+  --section-bg: #2D2D3D;
   --primary-text: #FFFFFF;
-  --secondary-text: #D2D3DB;
+  --secondary-text: #A0A0B5;
   --accent-purple: #807BEE;
-  --accent-blue: #1654E0;
-  --accent-red: #EB4F57;
+  --accent-blue: #007BFF;
+  --accent-red: #DC3545;
+  --divider-color: #3C3C4D;
+  --progress-bar-bg: #404058;
+  --progress-bar-home: #4A90E2;
+  --progress-bar-away: #B8B8D1;
   --pill-bg-live: #EB4F57;
   --pill-bg-dim: #3A3B45;
   --pill-text: #FFFFFF;

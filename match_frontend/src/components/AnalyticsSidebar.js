@@ -1,49 +1,76 @@
 import React from 'react';
 import './AnalyticsSidebar.css';
 
+const StatRow = ({ label, homeValue, awayValue }) => {
+    const total = homeValue + awayValue;
+    const homePercent = total > 0 ? (homeValue / total) * 100 : 0;
+    const awayPercent = total > 0 ? (awayValue / total) * 100 : 0;
+
+    return (
+        <div className="stat-row-item">
+            <div className="stat-row-header">
+                <span className="stat-value-home">{homeValue}</span>
+                <p className="stat-label">{label}</p>
+                <span className="stat-value-away">{awayValue}</span>
+            </div>
+            <div className="stat-row-bar">
+                <div className="stat-bar-fill home" style={{ width: `${homePercent}%` }}></div>
+                <div className="stat-bar-fill away" style={{ width: `${awayPercent}%` }}></div>
+            </div>
+        </div>
+    );
+};
+
+
 const AnalyticsSidebar = () => {
   return (
-    <aside className="chat-panel">
-      <div className="panel-card">
-        <h3>ANALYTICS</h3>
-        <div className="analytics-section">
-          <h4>Premier League Poll</h4>
-          <div className="poll-option">
-            <span>Chelsea</span>
-            <div className="progress-bar-container">
-              <div className="progress-bar" style={{ width: '0%' }}></div>
+    <aside className="analytics-sidebar">
+      <div className="sidebar-header">
+        <div className="tabs">
+          <button className="tab active">Analytics</button>
+          <button className="tab">Chat</button>
+        </div>
+        <span className="live-badge-sidebar">LIVE</span>
+      </div>
+
+      <div className="stats-card">
+        <div className="stats-header">
+          <h3>Statistics</h3>
+          <select className="stats-dropdown">
+            <option>1st half</option>
+            <option>2nd half</option>
+          </select>
+        </div>
+
+        <div className="stats-content">
+            <div className="possession-stat">
+                <p className="stat-label centered">Possession</p>
+                <div className="possession-bar-group">
+                    <div className="possession-bar-row">
+                        <span className="team-label">HOME</span>
+                        <div className="progress-bar-container">
+                            <div className="progress-bar home" style={{ width: '52%' }}></div>
+                        </div>
+                        <span className="percentage-label">52%</span>
+                    </div>
+                    <div className="possession-bar-row">
+                        <span className="team-label">AWAY</span>
+                        <div className="progress-bar-container">
+                            <div className="progress-bar away" style={{ width: '48%' }}></div>
+                        </div>
+                        <span className="percentage-label">48%</span>
+                    </div>
+                </div>
             </div>
-            <span>0%</span>
-          </div>
-          <div className="poll-option">
-            <span>Arsenal</span>
-            <div className="progress-bar-container">
-              <div className="progress-bar" style={{ width: '0%' }}></div>
-            </div>
-            <span>0%</span>
-          </div>
-          <button className="vote-btn">VOTE</button>
-        </div>
-        <div className="analytics-section">
-          <h4>Timeline</h4>
-          <p><strong>GOAL:</strong> 15.8M</p>
-        </div>
-        <div className="analytics-section">
-          <h4>Subs</h4>
-          <p><strong>Substitution:</strong> 5.2M</p>
-        </div>
-        <div className="analytics-section">
-          <h4>Possession</h4>
-          <p><strong>Team Possession:</strong> 58.2%</p>
-        </div>
-        <div className="analytics-section">
-          <h4>Top Moments</h4>
-          <ul className="timeline-list">
-            <li>Starting Lineups</li>
-            <li>Kick Off</li>
-            <li>Havertz Dismissal</li>
-            <li>Penalty - 16th</li>
-          </ul>
+
+            <div className="divider"></div>
+            <StatRow label="Shots" homeValue={4} awayValue={2} />
+            <div className="divider"></div>
+            <StatRow label="Cards" homeValue={1} awayValue={3} />
+            <div className="divider"></div>
+            <StatRow label="Corners" homeValue={5} awayValue={3} />
+            <div className="divider"></div>
+            <StatRow label="Penalties" homeValue={0} awayValue={1} />
         </div>
       </div>
     </aside>
