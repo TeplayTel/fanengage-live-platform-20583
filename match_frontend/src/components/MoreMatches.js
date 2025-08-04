@@ -35,9 +35,15 @@ const TeamLogo = ({ team, className }) => {
   );
 };
 
-const MatchCard = ({ teams, isLive, score }) => (
+const MatchCard = ({ teams, isLive, score, status = 'live' }) => (
   <div className="highlight-item-placeholder">
-    {isLive && <span className="live-badge-small">LIVE</span>}
+    <div className="match-status-indicator">
+      {isLive ? (
+        <span className="live-badge-small">LIVE</span>
+      ) : (
+        <span className="recorded-badge-small">RECORDED</span>
+      )}
+    </div>
     <div className="match-card-teams">
       <div className="team-info">
         <TeamLogo team={teams[0]} className="team-logo-small" />
@@ -51,8 +57,11 @@ const MatchCard = ({ teams, isLive, score }) => (
         <span className="team-abbreviation">{teams[1].name}</span>
       </div>
     </div>
+    <div className="match-status-text">
+      {isLive ? 'Live Now' : 'Full Time'}
+    </div>
     <button className="watch-now-btn">
-      {isLive ? 'Watch Live' : 'Watch Now'}
+      {isLive ? 'Watch Live' : 'Watch Highlights'}
     </button>
   </div>
 );
@@ -104,7 +113,7 @@ const MoreMatches = () => {
       <h2>More Matches (7)</h2>
       <div className="carousel-content">
         {matches.map((match, index) => (
-          <MatchCard key={index} teams={match.teams} isLive={match.isLive} />
+          <MatchCard key={index} teams={match.teams} isLive={match.isLive} score={match.score} />
         ))}
       </div>
     </div>
